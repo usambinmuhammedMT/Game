@@ -1,0 +1,16 @@
+{
+  "name": "shadowbound-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "phaser": "^3.60.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  }
+}

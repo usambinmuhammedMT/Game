@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Multiplayer Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Multiplayer Tic-Tac-Toe</h1>
+
+    <div id="lobby">
+      <button id="findBtn">Find Match</button>
+      <p id="lobbyStatus"></p>
+    </div>
+
+    <div id="game" class="hidden">
+      <div class="info">
+        <div id="myMark">Mark: -</div>
+        <div id="turn">Turn: -</div>
+        <div id="result"></div>
+      </div>
+
+      <div id="board" class="board"></div>
+
+      <div class="controls">
+        <button id="rematchBtn" disabled>Request Rematch</button>
+        <button id="leaveBtn">Leave</button>
+      </div>
+
+      <div class="chat">
+        <div id="chatLog" class="chatLog"></div>
+        <form id="chatForm">
+          <input id="chatInput" autocomplete="off" placeholder="Type message..." />
+          <button>Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
