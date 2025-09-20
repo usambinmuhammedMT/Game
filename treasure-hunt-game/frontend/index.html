@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddle Tower Multiplayer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hud">
+    <div id="lives" class="hud-item"></div>
+    <div id="score" class="hud-item">Score: 0</div>
+    <div id="timer" class="hud-item">00:30</div>
+  </div>
+
+  <div class="game-container">
+    <h1 class="game-title">Riddle Tower</h1>
+    <p id="guardian-text" class="guardian-text"></p>
+    <div id="level-container" class="level-card"></div>
+
+    <div id="hint-container">
+      <button id="hint-btn">Show Hint</button>
+      <p id="hint-text"></p>
+    </div>
+
+    <div id="secret-room-container" class="hidden">
+      <img src="assets/images/secret-room.png" alt="Secret Room" id="secret-room-img">
+      <button id="enter-secret-btn">Enter Secret Room</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Winner announcement -->
+  <div id="winner-announcement" class="hidden">
+    <h2 id="winner-text"></h2>
+    <button onclick="showLeaderboard()">View Leaderboard</button>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="correct-sound" src="assets/sounds/correct.mp3"></audio>
+  <audio id="wrong-sound" src="assets/sounds/wrong.mp3"></audio>
+  <audio id="levelup-sound" src="assets/sounds/levelup.mp3"></audio>
+  <audio id="treasure-sound" src="assets/sounds/treasure.mp3"></audio>
+  <audio id="life-lost-sound" src="assets/sounds/life-lost.mp3"></audio>
+  <audio id="victory-sound" src="assets/sounds/victory.mp3"></audio>
+
+  <!-- Leaderboard -->
+  <div id="leaderboard" class="hidden leaderboard">
+    <h2>🏆 Leaderboard</h2>
+    <ul id="leaderboard-list"></ul>
+    <button onclick="closeLeaderboard()">Close</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

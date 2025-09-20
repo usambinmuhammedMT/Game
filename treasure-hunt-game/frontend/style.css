@@ -1,0 +1,144 @@
+/* Reset + layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  background: url('assets/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* HUD bar */
+.hud {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 20px;
+  border-radius: 12px;
+  z-index: 1000;
+}
+.hud-item { display: flex; align-items: center; justify-content: center; }
+
+/* Game container */
+.game-container {
+  background: rgba(0,0,0,0.7);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+  animation: fadeIn 1s forwards;
+  margin-top: 100px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  color: gold;
+  text-shadow: 0 0 15px #fff;
+  animation: glow 2s infinite alternate;
+}
+
+/* Guardian */
+#guardian-container { margin: 15px 0; }
+#guardian-img {
+  width: 120px;
+  transition: transform 0.5s;
+}
+.guardian-animate.correct { transform: scale(1.2) rotate(5deg); }
+.guardian-animate.wrong { animation: shake 0.5s; }
+
+/* Level Card */
+.level-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  transition: transform 0.5s;
+}
+.level-card.correct { animation: correctBounce 1s forwards; }
+.level-card.wrong { animation: shake 0.5s; }
+
+/* Inputs + buttons */
+input[type="text"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  width: 80%;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+input[type="text"]:focus { box-shadow: 0 0 10px #00ffea; }
+
+button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(to right, #ffb347, #ffcc33);
+  color: #000;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #fff;
+}
+
+#hint-text { margin-top: 10px; font-style: italic; color: #ffe066; }
+.hidden { display: none; }
+
+/* Secret Room */
+#secret-room-img { width: 100px; animation: sparkle 1.5s infinite alternate; }
+
+/* Treasure finale */
+.treasure-animate { width: 180px; animation: treasureBounce 2s infinite alternate; }
+
+/* Leaderboard */
+.leaderboard {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.9);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 30px #000;
+  z-index: 10000;
+}
+.leaderboard ul { list-style: none; padding: 0; margin: 0; }
+.leaderboard li { margin: 5px 0; animation: slideIn 0.5s; }
+
+/* Animations */
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes glow { from { text-shadow: 0 0 15px gold; } to { text-shadow: 0 0 30px yellow; } }
+@keyframes correctBounce { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 70% { transform: scale(0.9); } 100% { transform: scale(1); } }
+@keyframes sparkle { 0% { transform: scale(1); } 50% { transform: scale(1.1) rotate(5deg); } 100% { transform: scale(1) rotate(0deg); } }
+@keyframes treasureBounce { 0% { transform: scale(1) translateY(0);} 50% { transform: scale(1.2) translateY(-20px);} 100% { transform: scale(1) translateY(0);} }
+@keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-5px); } 100% { transform: translateX(0); } }
+@keyframes slideIn { 0% { opacity: 0; transform: translateX(-20px);} 100% { opacity: 1; transform: translateX(0);} }
+
+/* Confetti */
+#confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+
+/* Timer digital */
+#timer { font-family: "Courier New", monospace; font-size: 24px; color: #00ffea; text-shadow: 0 0 8px #00f6ff; }
